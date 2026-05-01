@@ -255,7 +255,7 @@ def analyze_paper(client: anthropic.Anthropic, paper_text: str) -> dict:
 
     print("Analyzing paper with Claude...", end=" ", flush=True)
     response = client.messages.create(
-        model="claude-opus-4-7",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         system=ANALYSIS_SYSTEM_PROMPT,
         messages=[{
@@ -324,7 +324,7 @@ def mode_search(client: anthropic.Anthropic, hypothesis: str, source: str) -> No
 
     collected = []
     with client.messages.stream(
-        model="claude-opus-4-7",
+        model="claude-sonnet-4-6",
         max_tokens=4096,
         system=BIBLIO_SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_message}],
